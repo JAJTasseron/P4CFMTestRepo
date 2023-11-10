@@ -1,16 +1,14 @@
 package teamfowler.testproject;
 
-public class LambdaHandler {
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
 
-    public String loginPostHandler(){
-        return "Dit zou login moeten handlen";
-    }
+import java.util.Map;
 
-    public String getAllPhotosHandler(){
-        return "Dit zou alle fotos halen moeten handlen";
-    }
+public class LoginHandler implements RequestHandler<Map<String, Object>,Map<String, String>> {
 
-    public String getPhotoByIdHandler(){
-        return "Dit zou een foto per id moeten handlen";
+    @Override
+    public Map<String, String> handleRequest(Map<String, Object> input, Context context) {
+        return Map.of("message","Dit zou een login moeten afhandelen");
     }
 }

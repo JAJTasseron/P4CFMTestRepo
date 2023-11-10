@@ -4,17 +4,22 @@ import junit.framework.TestCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class getPhotoByIdHandlerTest extends TestCase {
+import java.util.HashMap;
+import java.util.Map;
 
-    public getPhotoByIdHandler sut;
+public class GetPhotoByIdHandlerTest extends TestCase {
+
+    public GetPhotoByIdHandler sut;
+    public Map<String, Object> map;
 
     @BeforeEach
     public void setSut(){
-        sut = new getPhotoByIdHandler();
+        sut = new GetPhotoByIdHandler();
+        map = new HashMap<>();
     }
 
     @Test
-    public void testGetPhotoByIdHandler() {
-        assertEquals(sut.handleRequest(null,null),"Dit zou alle fotos halen moeten handlen");
+    public void testHandleRequest() {
+        assertEquals(sut.handleRequest(map,null).get("message"),"Dit zou een foto per id moeten handlen");
     }
 }
